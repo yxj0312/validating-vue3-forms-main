@@ -32,6 +32,11 @@ export default {
     const email = userField('email', function name (value) {
       if (!value) return 'This field is required'
 
+      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      if (!regex.test(String(value).toLowerCase())) {
+        return 'Please enter a valid email address'
+      }
+
       return true
     })
     return {
