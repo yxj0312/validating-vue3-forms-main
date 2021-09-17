@@ -22,14 +22,14 @@
 </template>
 
 <script>
-import { userField } from 'vee-validate'
+import { useField } from 'vee-validate'
 export default {
   setup () {
     function onSubmit () {
       alert('Submitted')
     }
 
-    const email = userField('email', function name (value) {
+    const email = useField('email', function name (value) {
       if (!value) return 'This field is required'
 
       const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -40,7 +40,9 @@ export default {
       return true
     })
     return {
-      onSubmit
+      onSubmit,
+      email: email.value,
+      emailError: email.errorMessage
     }
   }
 }
