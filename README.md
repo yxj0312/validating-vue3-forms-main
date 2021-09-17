@@ -24,7 +24,7 @@ return {
 
 This perfectly ok to do, and this verboseness can sometimes lead to code clarity, which is always a good thing. But often when working with the Composition API you will notice that most resources will make use of JavaScript deconstructing.
 
-Deconstructing in itself is beyond the scope of this course, but MDN has a great article that explains it in detail.
+Deconstructing in itself is beyond the scope of this course, but MDN has [a great article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) that explains it in detail.
 
 The previous example, written using JavaScript deconstructing, looks like this:
 
