@@ -89,6 +89,22 @@ export default {
     const anything = () => {
       return true
     }
+
+    const validationSchema = {
+      category: required,
+      title: value => {
+        const req = required(value)
+        if (req !== true) return req
+        const min = minLength(3, value)
+        if (min !== true) return min
+        return true
+      },
+      description: required,
+      location: undefined,
+      pets: anything,
+      catering: anything,
+      music: anything
+    }
     return {}
   }
 }
