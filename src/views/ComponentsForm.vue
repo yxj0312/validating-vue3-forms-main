@@ -1,62 +1,62 @@
 <template>
   <div>
     <h1>Create an Event</h1>
-    <form>
+    <form @submit.prevent="submit">
       <BaseSelect
         label="Select a category"
         :options="categories"
-        v-model=""
-        :error=""
+        v-model="category"
+        :error="errors.category"
       />
 
       <h3>Name & describe your event</h3>
       <BaseInput
         label="Title"
-        v-model=""
-        :error=""
         type="text"
+        v-model="title"
+        :error="errors.title"
       />
 
       <BaseInput
         label="Description"
-        v-model=""
-        :error=""
         type="text"
+        v-model="description"
+        :error="errors.description"
       />
 
       <h3>Where is your event?</h3>
       <BaseInput
         label="Location"
-        v-model=""
-        :error=""
         type="text"
+        v-model="location"
+        :error="errors.location"
       />
 
       <h3>Are pets allowed?</h3>
       <BaseRadioGroup
-        v-model=""
-        :error=""
         name="pets"
         :options="[
           { value: 1, label: 'Yes' },
           { value: 0, label: 'No' }
         ]"
+        v-model="pets"
+        :error="errors.pets"
       />
 
       <h3>Extras</h3>
       <div>
         <BaseCheckbox
           label="Catering"
-          v-model=""
-          :error=""
+          v-model="catering"
+          :error="errors.catering"
         />
       </div>
 
       <div>
         <BaseCheckbox
           label="Live music"
-          v-model=""
-          :error=""
+          v-model="music"
+          :error="errors.music"
         />
       </div>
 
