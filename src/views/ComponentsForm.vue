@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { useForm } from 'vee-validate'
+import { useField, useForm } from 'vee-validate'
 export default {
   setup () {
     const required = value => {
@@ -110,6 +110,14 @@ export default {
     useForm({
       validationSchema
     })
+
+    const { value: category } = useField('category')
+    const { value: title } = useField('title')
+    const { value: description } = useField('description')
+    const { value: location } = useField('location')
+    const { value: pets } = useField('pets')
+    const { value: catering } = useField('catering')
+    const { value: music } = useField('music')
     return {}
   }
 }
