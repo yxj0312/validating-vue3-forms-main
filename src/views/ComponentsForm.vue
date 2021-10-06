@@ -107,7 +107,7 @@ export default {
       music: anything
     }
 
-    useForm({
+    const errors = useForm({
       validationSchema
     })
 
@@ -118,7 +118,16 @@ export default {
     const { value: pets } = useField('pets')
     const { value: catering } = useField('catering')
     const { value: music } = useField('music')
-    return {}
+    return {
+      category,
+      title,
+      description,
+      location,
+      pets,
+      catering,
+      music,
+      errors
+    }
   }
 }
 </script>
