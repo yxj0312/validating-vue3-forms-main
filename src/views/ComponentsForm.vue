@@ -74,6 +74,7 @@
 </template>
 
 <script>
+import { useForm } from 'vee-validate'
 export default {
   setup () {
     const required = value => {
@@ -105,6 +106,10 @@ export default {
       catering: anything,
       music: anything
     }
+
+    useForm({
+      validationSchema
+    })
     return {}
   }
 }
