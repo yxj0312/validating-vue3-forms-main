@@ -76,6 +76,19 @@
 <script>
 import { useField, useForm } from 'vee-validate'
 export default {
+  data () {
+    return {
+      categories: [
+        'sustainability',
+        'nature',
+        'animal welfare',
+        'housing',
+        'education',
+        'food',
+        'community'
+      ]
+    }
+  },
   setup () {
     const required = value => {
       const requiredMessage = 'This field is required'
@@ -106,7 +119,6 @@ export default {
       catering: anything,
       music: anything
     }
-
     const { handleSubmit, errors } = useForm({
       validationSchema,
       initialValues: {
@@ -115,7 +127,6 @@ export default {
         music: false
       }
     })
-
     const { value: category } = useField('category')
     const { value: title } = useField('title')
     const { value: description } = useField('description')
@@ -123,11 +134,9 @@ export default {
     const { value: pets } = useField('pets')
     const { value: catering } = useField('catering')
     const { value: music } = useField('music')
-
     const submit = handleSubmit(values => {
       console.log('submit', values)
     })
-
     return {
       category,
       title,
@@ -136,6 +145,7 @@ export default {
       pets,
       catering,
       music,
+      submit,
       errors
     }
   }
