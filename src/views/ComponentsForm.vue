@@ -118,6 +118,11 @@ export default {
     const { value: pets } = useField('pets')
     const { value: catering } = useField('catering')
     const { value: music } = useField('music')
+
+    const submit = handleSubmit(values => {
+      console.log('submit', values)
+    })
+
     return {
       category,
       title,
