@@ -107,8 +107,13 @@ export default {
       music: anything
     }
 
-    const errors = useForm({
-      validationSchema
+    const { handleSubmit, errors } = useForm({
+      validationSchema,
+      initialValues: {
+        pets: 1,
+        catering: false,
+        music: false
+      }
     })
 
     const { value: category } = useField('category')
