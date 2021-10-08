@@ -75,6 +75,7 @@
 
 <script>
 import { useField, useForm } from 'vee-validate'
+import { object, string, number, boolean } from 'yup'
 export default {
   data () {
     return {
@@ -104,21 +105,16 @@ export default {
       return true
     }
 
-    const validationSchema = {
-      category: required,
-      title: value => {
-        const req = required(value)
-        if (req !== true) return req
-        const min = minLength(3, value)
-        if (min !== true) return min
-        return true
-      },
-      description: required,
-      location: undefined,
-      pets: anything,
-      catering: anything,
-      music: anything
-    }
+    const validationSchema = object({
+      category: string().required(),
+      title: string().required('A cool title is required').min(3),
+      description: string().required(),
+      location: string(),
+      pets: number(),
+      catering: boolean(),
+      music: boolean()
+    })
+
     const { handleSubmit, errors } = useForm({
       validationSchema,
       initialValues: {
