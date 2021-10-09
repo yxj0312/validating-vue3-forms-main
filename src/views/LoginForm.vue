@@ -30,7 +30,6 @@ export default {
     function onSubmit () {
       alert('Submitted')
     }
-
     const validations = {
       email: value => {
         if (!value) return 'This field is required'
@@ -38,25 +37,20 @@ export default {
         if (!regex.test(String(value).toLowerCase())) {
           return 'Please enter a valid email address'
         }
-
         return true
       },
       password: value => {
         const requiredMessage = 'This field is required'
         if (value === undefined || value === null) return requiredMessage
         if (!String(value).length) return requiredMessage
-
         return true
       }
     }
-
     useForm({
       validationSchema: validations
     })
-
     const { value: email, errorMessage: emailError } = useField('email')
     const { value: password, errorMessage: passwordError } = useField('password')
-
     return {
       onSubmit,
       email,
