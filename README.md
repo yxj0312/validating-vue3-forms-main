@@ -63,3 +63,13 @@ Both syntaxes are completely fine, so feel free to use whichever makes more sens
 Input: Fires every time the user adds or deletes a character in the field.
 
 Change: Fires once the field loses focus
+
+### Handling changes in multiple inputs
+
+If your form consists of several inputs, the approach of using handleChange for each one of them may become cumbersome as we have learned in previous lessons.
+
+In these cases, there is a function named setFieldValue that can be extracted from the useForm composition function.
+
+You may be wondering why you would need to use this magic method instead of directly updating the form’s model. The setFieldValue function will trigger the validation rules on the form’s field who was modified, which would not be the case if we modified it directly.
+
+For more information on setFieldValue please check out the [official docs](https://vee-validate.logaretm.com/v4/api/use-form#composable-api).
