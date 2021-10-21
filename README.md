@@ -55,3 +55,11 @@ return {
 ```
 
 Both syntaxes are completely fine, so feel free to use whichever makes more sense to you with our examples.
+
+## L6 Lazy Validation
+
+### Listening to change and not input
+
+Input: Fires every time the user adds or deletes a character in the field.
+
+Change: Fires once the field loses focus
